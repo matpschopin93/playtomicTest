@@ -1,0 +1,20 @@
+spring.profiles.active: develop
+server:
+  port: 8090
+---
+spring:
+  profiles: develop
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/playtest
+
+stripe.simulator.charges-uri: https://sandbox.playtomic.io/v1/stripe-simulator/charges
+stripe.simulator.refunds-uri: https://sandbox.playtomic.io/v1/stripe-simulator/payments/{payment_id}/refunds
+---
+spring:
+  profiles: test
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/playtest
+stripe.simulator.charges-uri: http://localhost:9999
+stripe.simulator.refunds-uri: http://localhost:9999
